@@ -17,7 +17,7 @@
 // The `https` setting requires the `fs` module. Uncomment the following
 // to make it available:
 //var fs = require("fs");
-
+process.env.TZ = "Europe/Stockholm";
 module.exports = {
     // the tcp port that the Node-RED web server is listening on
     uiPort: process.env.PORT || 1880,
@@ -91,7 +91,7 @@ module.exports = {
     // By default, the Node-RED UI is available at http://localhost:1880/
     // The following property can be used to specify a different root path.
     // If set to false, this is disabled.
-    //httpAdminRoot: '/admin',
+    httpAdminRoot: '/admin',
 
     // Some nodes, such as HTTP In, can be used to listen for incoming http requests.
     // By default, these are served relative to '/'. The following property
@@ -101,12 +101,12 @@ module.exports = {
 
     // The following property can be used in place of 'httpAdminRoot' and 'httpNodeRoot',
     // to apply the same root to both parts.
-    //httpRoot: '/red',
+    httpRoot: '/',
 
     // When httpAdminRoot is used to move the UI to a different root path, the
     // following property can be used to identify a directory of static content
     // that should be served at http://localhost:1880/.
-    //httpStatic: '/home/nol/node-red-static/',
+    httpStatic: '/node-red-static/',
 
     // The maximum size of HTTP request that will be accepted by the runtime api.
     // Default: 5mb
@@ -114,7 +114,7 @@ module.exports = {
 
     // If you installed the optional node-red-dashboard you can set it's path
     // relative to httpRoot
-    //ui: { path: "ui" },
+    ui: { path: "" },
 
     // Securing Node-RED
     // -----------------
