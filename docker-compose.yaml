@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nodered:
+    container_name: trackers_nodered
+    restart: always
+    image: nodered/node-red
+    user: '0'    
+    ports:
+      - '9000:1880'
+    volumes:
+      - ./nodered:/data
