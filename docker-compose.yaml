@@ -19,7 +19,7 @@ services:
     restart: always
     environment:
       - MONGODB_AUTH=false
-    image: mongo:latest
+    image: webhippie/mongodb
     user: '0'
     volumes:
       - ./mongo:/data/db
