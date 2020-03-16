@@ -25,7 +25,7 @@ services:
       - ./mongo:/data/db
   mongo-express:
     container_name: trackers_mongo_express
-    image: mongo-express
+    image: malaslt/mongo-express-arm
     restart: always
     ports:
       - 9081:8081
