@@ -46,5 +46,5 @@ services:
     user: '0'
     volumes:
       - ./influx:/var/lib/influxdb
-#    ports:
-#      - '8086:8086'
+    ports:
+      - '9086:8086'
