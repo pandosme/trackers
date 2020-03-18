@@ -1,0 +1,50 @@
+version: '3'
+services:
+  nodered:
+    container_name: trackers_nodered
+    restart: always
+    image: nodered/node-red
+    user: '0'    
+    ports:
+      - '9000:1880'
+    volumes:
+      - ./nodered:/data
+      - ./files:/files
+    links:
+      - mongo
+      - broker
+      - influx
+  mongo:
+    container_name: trackers_mongo
+    restart: always
+    environment:
+      - MONGODB_AUTH=false
+    image: webhippie/mongodb
+    user: '0'
+    volumes:
+      - ./mongo:/data/db
+  mongo-express:
+    container_name: trackers_mongo_express
+    image: malaslt/mongo-express-arm
+    restart: always
+    ports:
+      - 9081:8081
+  broker:
+    container_name: trackers_broker
+    restart: always
+    image: eclipse-mosquitto
+    user: '0'    
+    ports:
+      - '9883:1883'
+      - '9884:1884'
+    volumes:
+      - ./mosquitto:/mosquitto
+  influx:
+    container_name: trackers_influx
+    restart: always
+    image: influxdb
+    user: '0'
+    volumes:
+      - ./influx:/var/lib/influxdb
+   ports:
+      - '9086:8086'
